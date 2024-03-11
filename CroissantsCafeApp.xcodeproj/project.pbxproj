@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		932D00012B99DAB3007ABFCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D00002B99DAB3007ABFCE /* ViewController.swift */; };
+		930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */; };
 		932D00042B99DAB3007ABFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00022B99DAB3007ABFCE /* Main.storyboard */; };
 		932D00062B99DABB007ABFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932D00052B99DABB007ABFCE /* Assets.xcassets */; };
 		932D00092B99DABB007ABFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00072B99DABB007ABFCE /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		932D00002B99DAB3007ABFCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		932D00032B99DAB3007ABFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932D00052B99DABB007ABFCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932D00082B99DABB007ABFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -42,6 +42,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		930D41CE2B9EF44F00CAC6C8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */,
+				932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */,
+				932D00022B99DAB3007ABFCE /* Main.storyboard */,
+				932D00052B99DABB007ABFCE /* Assets.xcassets */,
+				932D00072B99DABB007ABFCE /* LaunchScreen.storyboard */,
+				932D000A2B99DABB007ABFCE /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		930D41CF2B9EF46800CAC6C8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		930D41D02B9EF46F00CAC6C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		930D41D12B9EF47400CAC6C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		932DFFF02B99DAB3007ABFCE = {
 			isa = PBXGroup;
 			children = (
@@ -63,13 +98,10 @@
 		932DFFFB2B99DAB3007ABFCE /* CroissantsCafeApp */ = {
 			isa = PBXGroup;
 			children = (
-				932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */,
-				932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */,
-				932D00002B99DAB3007ABFCE /* ViewController.swift */,
-				932D00022B99DAB3007ABFCE /* Main.storyboard */,
-				932D00052B99DABB007ABFCE /* Assets.xcassets */,
-				932D00072B99DABB007ABFCE /* LaunchScreen.storyboard */,
-				932D000A2B99DABB007ABFCE /* Info.plist */,
+				930D41D12B9EF47400CAC6C8 /* Models */,
+				930D41D02B9EF46F00CAC6C8 /* Views */,
+				930D41CF2B9EF46800CAC6C8 /* Controllers */,
+				930D41CE2B9EF44F00CAC6C8 /* SupportingFiles */,
 			);
 			path = CroissantsCafeApp;
 			sourceTree = "<group>";
@@ -80,7 +112,6 @@
 				AB97838329524779BFD0FC2F /* Pods-CroissantsCafeApp.debug.xcconfig */,
 				A239F6A83480150A661D0839 /* Pods-CroissantsCafeApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,9 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932D00012B99DAB3007ABFCE /* ViewController.swift in Sources */,
 				932DFFFD2B99DAB3007ABFCE /* AppDelegate.swift in Sources */,
 				932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */,
+				930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +388,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CroissantsCafeApp/Info.plist;
+				INFOPLIST_FILE = CroissantsCafeApp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CroissantsCafeApp/Info.plist;
+				INFOPLIST_FILE = CroissantsCafeApp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
