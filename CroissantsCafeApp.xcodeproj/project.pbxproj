@@ -8,16 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */; };
+		930D41DB2B9F2A7F00CAC6C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D41DA2B9F2A7F00CAC6C8 /* MainViewController.swift */; };
+		930D41E72B9F2FFA00CAC6C8 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D41E62B9F2FFA00CAC6C8 /* GalleryCollectionView.swift */; };
+		930D41EA2B9F307100CAC6C8 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930D41E92B9F307100CAC6C8 /* GalleryCollectionViewCell.swift */; };
 		932D00042B99DAB3007ABFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00022B99DAB3007ABFCE /* Main.storyboard */; };
 		932D00062B99DABB007ABFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932D00052B99DABB007ABFCE /* Assets.xcassets */; };
 		932D00092B99DABB007ABFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00072B99DABB007ABFCE /* LaunchScreen.storyboard */; };
 		932DFFFD2B99DAB3007ABFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */; };
 		932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */; };
+		93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7862BA062920022C658 /* MainScreenTopView.swift */; };
+		93FDB78A2BA075D20022C658 /* MainScreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */; };
+		93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB78C2BA083D20022C658 /* MenuButton.swift */; };
 		D0DBDF00D1D41E5673EE8607 /* Pods_CroissantsCafeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB65C430EFAD81C7D4B2E7FC /* Pods_CroissantsCafeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		930D41DA2B9F2A7F00CAC6C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../../../../MainViewController.swift; sourceTree = "<group>"; };
+		930D41E62B9F2FFA00CAC6C8 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		930D41E92B9F307100CAC6C8 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		932D00032B99DAB3007ABFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932D00052B99DABB007ABFCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932D00082B99DABB007ABFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -25,6 +34,9 @@
 		932DFFF92B99DAB3007ABFCE /* CroissantsCafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CroissantsCafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93FDB7862BA062920022C658 /* MainScreenTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTopView.swift; sourceTree = "<group>"; };
+		93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBottomView.swift; sourceTree = "<group>"; };
+		93FDB78C2BA083D20022C658 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		A239F6A83480150A661D0839 /* Pods-CroissantsCafeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroissantsCafeApp.release.xcconfig"; path = "Target Support Files/Pods-CroissantsCafeApp/Pods-CroissantsCafeApp.release.xcconfig"; sourceTree = "<group>"; };
 		AB97838329524779BFD0FC2F /* Pods-CroissantsCafeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroissantsCafeApp.debug.xcconfig"; path = "Target Support Files/Pods-CroissantsCafeApp/Pods-CroissantsCafeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DB65C430EFAD81C7D4B2E7FC /* Pods_CroissantsCafeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CroissantsCafeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */,
+				930D41DA2B9F2A7F00CAC6C8 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -66,6 +79,11 @@
 		930D41D02B9EF46F00CAC6C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				930D41E62B9F2FFA00CAC6C8 /* GalleryCollectionView.swift */,
+				930D41E92B9F307100CAC6C8 /* GalleryCollectionViewCell.swift */,
+				93FDB7862BA062920022C658 /* MainScreenTopView.swift */,
+				93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */,
+				93FDB78C2BA083D20022C658 /* MenuButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -238,8 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				932DFFFD2B99DAB3007ABFCE /* AppDelegate.swift in Sources */,
+				930D41EA2B9F307100CAC6C8 /* GalleryCollectionViewCell.swift in Sources */,
+				93FDB78A2BA075D20022C658 /* MainScreenBottomView.swift in Sources */,
 				932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */,
 				930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */,
+				93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */,
+				930D41E72B9F2FFA00CAC6C8 /* GalleryCollectionView.swift in Sources */,
+				930D41DB2B9F2A7F00CAC6C8 /* MainViewController.swift in Sources */,
+				93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
