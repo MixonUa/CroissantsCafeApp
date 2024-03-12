@@ -12,7 +12,7 @@ class MenuButton: UIButton {
     private let menuTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .darkGray
+        label.textColor = .black
         label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         return label
     }()

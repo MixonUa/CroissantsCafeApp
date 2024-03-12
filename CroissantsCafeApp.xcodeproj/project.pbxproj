@@ -19,6 +19,10 @@
 		93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7862BA062920022C658 /* MainScreenTopView.swift */; };
 		93FDB78A2BA075D20022C658 /* MainScreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */; };
 		93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB78C2BA083D20022C658 /* MenuButton.swift */; };
+		93FDB7902BA0ACC10022C658 /* CroissantsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB78F2BA0ACC10022C658 /* CroissantsDataModel.swift */; };
+		93FDB7942BA0ADA10022C658 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7932BA0ADA10022C658 /* NetworkService.swift */; };
+		93FDB7982BA0AF400022C658 /* NetworkFetchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7972BA0AF400022C658 /* NetworkFetchService.swift */; };
+		93FDB79D2BA0AF740022C658 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB79C2BA0AF740022C658 /* NetworkError.swift */; };
 		D0DBDF00D1D41E5673EE8607 /* Pods_CroissantsCafeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB65C430EFAD81C7D4B2E7FC /* Pods_CroissantsCafeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,10 @@
 		93FDB7862BA062920022C658 /* MainScreenTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTopView.swift; sourceTree = "<group>"; };
 		93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBottomView.swift; sourceTree = "<group>"; };
 		93FDB78C2BA083D20022C658 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		93FDB78F2BA0ACC10022C658 /* CroissantsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CroissantsDataModel.swift; sourceTree = "<group>"; };
+		93FDB7932BA0ADA10022C658 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		93FDB7972BA0AF400022C658 /* NetworkFetchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetchService.swift; sourceTree = "<group>"; };
+		93FDB79C2BA0AF740022C658 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A239F6A83480150A661D0839 /* Pods-CroissantsCafeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroissantsCafeApp.release.xcconfig"; path = "Target Support Files/Pods-CroissantsCafeApp/Pods-CroissantsCafeApp.release.xcconfig"; sourceTree = "<group>"; };
 		AB97838329524779BFD0FC2F /* Pods-CroissantsCafeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CroissantsCafeApp.debug.xcconfig"; path = "Target Support Files/Pods-CroissantsCafeApp/Pods-CroissantsCafeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DB65C430EFAD81C7D4B2E7FC /* Pods_CroissantsCafeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CroissantsCafeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +99,9 @@
 		930D41D12B9EF47400CAC6C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				93FDB79B2BA0AF640022C658 /* Errors */,
+				93FDB7962BA0AF2D0022C658 /* Services */,
+				93FDB7922BA0AD8E0022C658 /* DataModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +133,31 @@
 				930D41CE2B9EF44F00CAC6C8 /* SupportingFiles */,
 			);
 			path = CroissantsCafeApp;
+			sourceTree = "<group>";
+		};
+		93FDB7922BA0AD8E0022C658 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				93FDB78F2BA0ACC10022C658 /* CroissantsDataModel.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		93FDB7962BA0AF2D0022C658 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				93FDB7932BA0ADA10022C658 /* NetworkService.swift */,
+				93FDB7972BA0AF400022C658 /* NetworkFetchService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		93FDB79B2BA0AF640022C658 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				93FDB79C2BA0AF740022C658 /* NetworkError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		D7B4268126C14E6FA56ABFB1 /* Pods */ = {
@@ -259,9 +295,13 @@
 				930D41EA2B9F307100CAC6C8 /* GalleryCollectionViewCell.swift in Sources */,
 				93FDB78A2BA075D20022C658 /* MainScreenBottomView.swift in Sources */,
 				932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */,
+				93FDB7942BA0ADA10022C658 /* NetworkService.swift in Sources */,
+				93FDB7982BA0AF400022C658 /* NetworkFetchService.swift in Sources */,
 				930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */,
 				93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */,
+				93FDB7902BA0ACC10022C658 /* CroissantsDataModel.swift in Sources */,
 				930D41E72B9F2FFA00CAC6C8 /* GalleryCollectionView.swift in Sources */,
+				93FDB79D2BA0AF740022C658 /* NetworkError.swift in Sources */,
 				930D41DB2B9F2A7F00CAC6C8 /* MainViewController.swift in Sources */,
 				93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */,
 			);
