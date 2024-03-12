@@ -14,14 +14,36 @@ class LaunchViewController: UIViewController {
     let loadingCroissant = UIImageView(image: UIImage(named: "loadingCroissant"))
     let loadingLabel = UILabel()
     let loadingLine = UIProgressView()
+    var progressBarTimer: Timer?
+    
+    var data = [CroissantsDataModel]()
+    var error: Error? = nil
+    let fetchDataProvider = NetworkFetchService(networkDataProvider: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .black
         configureLoadingImages()
         configureLoadingLabel()
         configureLoadingLine()
+        
+        let group = DispatchGroup()
+        group.enter()
+        fetchDataProvider.requestCroissantsData { [unowned self] result in
+            switch result {
+            case .success(let recievedData): data = recievedData; print(recievedData.count)
+            case .failure(let recievedError): error = recievedError; print(recievedError.localizedDescription)
+            }
+            group.leave()
+        }
+        
+        group.notify(queue: DispatchQueue.main) { [unowned self] in
+            if error == nil {
+            loadingLine.progress += 0.2
+            loadingLine.setProgress(loadingLine.progress, animated: true)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,9 +57,21 @@ class LaunchViewController: UIViewController {
             }
         }, completion: {[unowned self] _ in
             loadingLine.alpha = 1
-            presentVC()
+            guard progressBarTimer == nil else { return }
+            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
         })
     }
+    
+    @objc private func updateProgressView(){
+        loadingLine.progress += 0.1
+        loadingLine.setProgress(loadingLine.progress, animated: true)
+        if(loadingLine.progress == 1.0) {
+            progressBarTimer?.invalidate()
+            progressBarTimer = nil
+            presentVC()
+        }
+    }
+    
     
     // MARK: - ViewConfiguration
     private func configureLoadingImages() {
@@ -72,6 +106,7 @@ class LaunchViewController: UIViewController {
     // MARK: - Navigation
     private func presentVC() {
         let nextVC = MainViewController()
+        nextVC.croissantData = data
         nextVC.modalTransitionStyle = .crossDissolve
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true, completion: nil)
