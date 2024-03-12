@@ -14,7 +14,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "loadingCroissant")
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = UIColor.systemPink
         return imageView
     }()
     
@@ -64,7 +63,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
             croissantImageView.topAnchor.constraint(equalTo: topAnchor),
             croissantImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             croissantImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            croissantImageView.heightAnchor.constraint(equalTo: widthAnchor)
+            croissantImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
         ])
         
         addSubview(croissantName)

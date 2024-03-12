@@ -16,7 +16,8 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         super.init(frame: .zero, collectionViewLayout: layout)
         
         isPagingEnabled = true
-        backgroundColor = UIColor.systemTeal
+        backgroundColor = UIColor.white
+        layer.cornerRadius = 40
         delegate = self
         dataSource = self
         register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: "GalleryCollectionViewCell")
