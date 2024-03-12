@@ -33,7 +33,10 @@ class LaunchViewController: UIViewController {
                 loadingCroissant.alpha = 1
                 loadingLabel.alpha = 1
             }
-        }, completion: {[unowned self] _ in loadingLine.alpha = 1 })
+        }, completion: {[unowned self] _ in
+            loadingLine.alpha = 1
+            presentVC()
+        })
     }
     
     // MARK: - ViewConfiguration
@@ -64,5 +67,13 @@ class LaunchViewController: UIViewController {
         loadingLine.alpha = 0
         loadingLine.frame = CGRect(x: ((frame.width/2)-120), y: ((frame.height/2)+105), width: 240, height: 30)
         view.addSubview(loadingLine)
+    }
+    
+    // MARK: - Navigation
+    private func presentVC() {
+        let nextVC = MainViewController()
+        nextVC.modalTransitionStyle = .crossDissolve
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
     }
 }
