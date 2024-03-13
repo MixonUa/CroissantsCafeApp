@@ -12,14 +12,14 @@ class MenuButton: UIButton {
     private let menuTitleLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = UIColor(red: 84/255, green: 141/255, blue: 67/255, alpha: 1)
         label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20)
         return label
     }()
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor.gray
+        backgroundColor = .systemGray5
         layer.cornerRadius = 25
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 3
@@ -48,7 +48,7 @@ class MenuButton: UIButton {
         NSLayoutConstraint.activate([
             arrowIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
             arrowIcon.leadingAnchor.constraint(equalTo: menuTitleLabel.trailingAnchor, constant: 5),
-            arrowIcon.trailingAnchor.constraint(equalTo: trailingAnchor),
+            arrowIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             arrowIcon.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
         ])
     }

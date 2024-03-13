@@ -10,6 +10,15 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     static let reuseId = "GalleryCollectionViewCell"
     
+    let stackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.alignment = .center
+        stack.spacing = 5
+        return stack
+    }()
+    
     let croissantImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "loadingCroissant")
@@ -28,7 +37,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     let croissantDescription: UILabel = {
        let label = UILabel()
-        label.text = "DESCRIPTION description description description description description descriptio"
+        label.text = "DESCRIPTION description description description description description "
         label.font = UIFont(name: "Helvetica-Regular", size: 14)
         label.textColor = UIColor.darkGray
         label.textAlignment = .left
@@ -49,6 +58,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configureStackView()
         configureViews()
     }
     
@@ -56,41 +66,38 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureViews() {
-        addSubview(croissantImageView)
-        croissantImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            croissantImageView.topAnchor.constraint(equalTo: topAnchor),
-            croissantImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            croissantImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            croissantImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
-        ])
+    private func configureStackView() {
+        addSubview(stackView)
+        stackView.addArrangedSubview(croissantImageView)
+        stackView.addArrangedSubview(croissantName)
+        stackView.addArrangedSubview(croissantDescription)
+        stackView.addArrangedSubview(croissantDetails)
         
-        addSubview(croissantName)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    private func configureViews() {
+        croissantImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         croissantName.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            croissantName.topAnchor.constraint(equalTo: croissantImageView.bottomAnchor, constant: 4),
-            croissantName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            croissantName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             croissantName.heightAnchor.constraint(equalToConstant: 25)
         ])
         
-        addSubview(croissantDetails)
-        croissantDetails.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            croissantDetails.heightAnchor.constraint(equalToConstant: 20),
-            croissantDetails.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            croissantDetails.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            croissantDetails.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
-        ])
-        
-        addSubview(croissantDescription)
         croissantDescription.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            croissantDescription.topAnchor.constraint(equalTo: croissantName.bottomAnchor),
-            croissantDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            croissantDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            croissantDescription.bottomAnchor.constraint(equalTo: croissantDetails.topAnchor, constant: -2)
+            croissantDescription.heightAnchor.constraint(equalToConstant: 70)
+        ])
+        
+        croissantDetails.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            croissantDetails.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
 }
