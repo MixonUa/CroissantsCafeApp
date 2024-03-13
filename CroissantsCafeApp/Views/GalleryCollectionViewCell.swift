@@ -15,7 +15,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.alignment = .center
-        stack.spacing = 5
+        stack.spacing = 2
         return stack
     }()
     
@@ -97,7 +97,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         
         croissantDetails.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            croissantDetails.heightAnchor.constraint(equalToConstant: 20)
+            croissantDetails.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 }

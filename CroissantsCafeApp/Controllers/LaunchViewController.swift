@@ -32,8 +32,8 @@ class LaunchViewController: UIViewController {
         group.enter()
         fetchDataProvider.requestCroissantsData { [unowned self] result in
             switch result {
-            case .success(let recievedData): data = recievedData; print(recievedData.count)
-            case .failure(let recievedError): error = recievedError; print(recievedError.localizedDescription)
+            case .success(let recievedData): data = recievedData
+            case .failure(let recievedError): error = recievedError
             }
             group.leave()
         }
@@ -58,16 +58,22 @@ class LaunchViewController: UIViewController {
         }, completion: {[unowned self] _ in
             loadingLine.alpha = 1
             guard progressBarTimer == nil else { return }
-            progressBarTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: true)
+            var timeInterval = 0.5
+            for _ in 0...3 {
+                progressBarTimer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(self.updateProgressView), userInfo: nil, repeats: false)
+                timeInterval += 0.5
+            }
         })
     }
     
     @objc private func updateProgressView(){
-        loadingLine.progress += 0.1
+        loadingLine.progress += 0.2
         loadingLine.setProgress(loadingLine.progress, animated: true)
-        if(loadingLine.progress == 1.0) {
-            progressBarTimer?.invalidate()
-            progressBarTimer = nil
+        if (loadingLine.progress == 0.8) {
+            guard let error = error else { return }
+            self.showErrorAlert(title: "ERROR", message: error.localizedDescription)
+        }
+        else if (loadingLine.progress == 1.0) {
             presentVC()
         }
     }
@@ -97,7 +103,7 @@ class LaunchViewController: UIViewController {
     }
     
     private func configureLoadingLine() {
-        loadingLine.progress = 0.15
+        loadingLine.progress = 0.0
         loadingLine.alpha = 0
         loadingLine.frame = CGRect(x: ((frame.width/2)-120), y: ((frame.height/2)+105), width: 240, height: 30)
         view.addSubview(loadingLine)
