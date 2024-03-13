@@ -10,7 +10,7 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     static let reuseId = "GalleryCollectionViewCell"
     
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.distribution = .fillProportionally
@@ -19,14 +19,14 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return stack
     }()
     
-    let croissantImageView: UIImageView = {
+    private let croissantImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "loadingCroissant")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    let croissantName: UILabel = {
+    private let croissantName: UILabel = {
         let label = UILabel()
         label.text = "NAME"
         label.font = UIFont(name: "Helvetica-Bold", size: 18)
@@ -35,7 +35,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let croissantDescription: UILabel = {
+    private let croissantDescription: UILabel = {
        let label = UILabel()
         label.text = "DESCRIPTION description description description description description "
         label.font = UIFont(name: "Helvetica-Regular", size: 14)
@@ -46,7 +46,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let croissantDetails: UILabel = {
+    private let croissantDetails: UILabel = {
        let label = UILabel()
         label.text = "100 / 500"
         label.font = UIFont(name: "Helvetica-Regular", size: 12)
