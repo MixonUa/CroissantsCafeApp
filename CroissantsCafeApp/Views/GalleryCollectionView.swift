@@ -8,7 +8,7 @@
 import UIKit
 
 class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    let cells = [String]()
+    public var dataModel = [CroissantsDataModel]()
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -28,11 +28,12 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return dataModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath)
+        let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as! GalleryCollectionViewCell
+        cell.updateCell(with: dataModel[indexPath.row])
         return cell
     }
     

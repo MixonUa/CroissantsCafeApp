@@ -66,6 +66,14 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func updateCell(with dataModel: CroissantsDataModel) {
+        croissantImageView.image = UIImage(named: "loadingCroissant")
+        croissantName.text = dataModel.name
+        croissantDescription.text = dataModel.description
+        croissantDetails.text = "\(dataModel.characteristics.weight)грамм, \(dataModel.characteristics.energy)ккал"
+        
+    }
+    
     private func configureStackView() {
         addSubview(stackView)
         stackView.addArrangedSubview(croissantImageView)
