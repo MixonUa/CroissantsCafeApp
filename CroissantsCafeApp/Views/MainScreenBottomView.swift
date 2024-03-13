@@ -10,7 +10,7 @@ import UIKit
 class MainScreenBottomView: UIView {
     private let centralCircleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(red: 111/255, green: 166/255, blue: 94/255, alpha: 1)
         view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8).cgColor
         view.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         view.layer.shadowOpacity = 1.0
@@ -41,7 +41,7 @@ class MainScreenBottomView: UIView {
     
     init() {
         super .init(frame: .zero)
-        backgroundColor = UIColor.darkGray
+        backgroundColor = UIColor(red: 88/255, green: 134/255, blue: 74/255, alpha: 1)
         configure()
     }
     
@@ -53,7 +53,7 @@ class MainScreenBottomView: UIView {
         addSubview(centralCircleView)
         centralCircleView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    centralCircleView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+                    centralCircleView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -30),
                     centralCircleView.centerXAnchor.constraint(equalTo: centerXAnchor),
                     centralCircleView.widthAnchor.constraint(equalToConstant: 100),
                     centralCircleView.heightAnchor.constraint(equalToConstant: 100)
@@ -71,7 +71,7 @@ class MainScreenBottomView: UIView {
         addSubview(promoLeftButon)
         promoLeftButon.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    promoLeftButon.centerYAnchor.constraint(equalTo: centerYAnchor),
+                    promoLeftButon.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
                     promoLeftButon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
                     promoLeftButon.widthAnchor.constraint(equalToConstant: 60),
                     promoLeftButon.heightAnchor.constraint(equalToConstant: 40)
@@ -80,7 +80,7 @@ class MainScreenBottomView: UIView {
         addSubview(adressRightButon)
         adressRightButon.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    adressRightButon.centerYAnchor.constraint(equalTo: centerYAnchor),
+                    adressRightButon.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
                     adressRightButon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
                     adressRightButon.widthAnchor.constraint(equalToConstant: 60),
                     adressRightButon.heightAnchor.constraint(equalToConstant: 40)

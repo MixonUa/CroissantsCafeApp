@@ -19,7 +19,7 @@ class MainScreenTopView: UIView {
     
     init() {
         super .init(frame: .zero)
-        backgroundColor = UIColor.darkGray
+        backgroundColor = UIColor(red: 88/255, green: 134/255, blue: 74/255, alpha: 1)
         configure()
     }
     
