@@ -20,7 +20,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         layer.cornerRadius = 40
         delegate = self
         dataSource = self
-        register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: "GalleryCollectionViewCell")
+        register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseId)
     }
     
     required init?(coder: NSCoder) {
