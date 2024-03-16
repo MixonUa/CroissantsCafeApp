@@ -84,7 +84,7 @@ class MenuTableViewCell: UITableViewCell {
             croissantDetails.isHidden = true
             triangleImageView.image = UIImage(named: "triangleDown")
         } else {
-            croissantDescription.text = "here they are det det det det det det det det here they are det det det det det det det det here they are det det det det det det det det here they are det det det det det det det det"
+            croissantDescription.text = model.croissant.description
             croissantDescription.numberOfLines = 0
             croissantDescription.textAlignment = .left
             croissantDescription.font = UIFont(name: "Helvetica-Regular", size: 14)
@@ -113,7 +113,7 @@ class MenuTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             rightContainerView.topAnchor.constraint(equalTo: topAnchor),
             rightContainerView.leadingAnchor.constraint(equalTo: croissantImageView.trailingAnchor, constant: 10),
-            rightContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            rightContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             rightContainerView.heightAnchor.constraint(equalToConstant: 80)
         ])
         
