@@ -18,23 +18,23 @@ class MainScreenBottomView: UIView {
         return view
     }()
     
-    private let menuCenterButon: UIButton = {
+    public let qrCodeCenterButon: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "qr"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
        return button
     }()
     
-    private let promoLeftButon: UIButton = {
+    public let promoLeftButon: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "promo"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
        return button
     }()
     
-    private let adressRightButon: UIButton = {
+    public let profileRightButon: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "map"), for: .normal)
+        button.setImage(UIImage(named: "profile"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
        return button
     }()
@@ -59,13 +59,13 @@ class MainScreenBottomView: UIView {
                     centralCircleView.heightAnchor.constraint(equalToConstant: 100)
                 ])
         
-        addSubview(menuCenterButon)
-        menuCenterButon.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(qrCodeCenterButon)
+        qrCodeCenterButon.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    menuCenterButon.centerYAnchor.constraint(equalTo: centralCircleView.centerYAnchor),
-                    menuCenterButon.centerXAnchor.constraint(equalTo: centralCircleView.centerXAnchor),
-                    menuCenterButon.widthAnchor.constraint(equalToConstant: 60),
-                    menuCenterButon.heightAnchor.constraint(equalToConstant: 60)
+                    qrCodeCenterButon.centerYAnchor.constraint(equalTo: centralCircleView.centerYAnchor),
+                    qrCodeCenterButon.centerXAnchor.constraint(equalTo: centralCircleView.centerXAnchor),
+                    qrCodeCenterButon.widthAnchor.constraint(equalToConstant: 60),
+                    qrCodeCenterButon.heightAnchor.constraint(equalToConstant: 60)
                 ])
         
         addSubview(promoLeftButon)
@@ -77,13 +77,13 @@ class MainScreenBottomView: UIView {
                     promoLeftButon.heightAnchor.constraint(equalToConstant: 40)
                 ])
         
-        addSubview(adressRightButon)
-        adressRightButon.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(profileRightButon)
+        profileRightButon.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.activate([
-                    adressRightButon.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
-                    adressRightButon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-                    adressRightButon.widthAnchor.constraint(equalToConstant: 60),
-                    adressRightButon.heightAnchor.constraint(equalToConstant: 40)
+                    profileRightButon.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -10),
+                    profileRightButon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
+                    profileRightButon.widthAnchor.constraint(equalToConstant: 60),
+                    profileRightButon.heightAnchor.constraint(equalToConstant: 40)
                 ])
     }
 }
