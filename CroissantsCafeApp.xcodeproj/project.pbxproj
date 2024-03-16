@@ -20,6 +20,8 @@
 		932D00092B99DABB007ABFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00072B99DABB007ABFCE /* LaunchScreen.storyboard */; };
 		932DFFFD2B99DAB3007ABFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */; };
 		932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */; };
+		93438A492BA44A7A00A9E630 /* PromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93438A482BA44A7A00A9E630 /* PromoViewController.swift */; };
+		93438A4F2BA44BF000A9E630 /* PromoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93438A4E2BA44BF000A9E630 /* PromoCollectionViewCell.swift */; };
 		93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7862BA062920022C658 /* MainScreenTopView.swift */; };
 		93FDB78A2BA075D20022C658 /* MainScreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */; };
 		93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FDB78C2BA083D20022C658 /* MenuButton.swift */; };
@@ -46,6 +48,8 @@
 		932DFFF92B99DAB3007ABFCE /* CroissantsCafeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CroissantsCafeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		932DFFFC2B99DAB3007ABFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		932DFFFE2B99DAB3007ABFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		93438A482BA44A7A00A9E630 /* PromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewController.swift; sourceTree = "<group>"; };
+		93438A4E2BA44BF000A9E630 /* PromoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCollectionViewCell.swift; sourceTree = "<group>"; };
 		93FDB7862BA062920022C658 /* MainScreenTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenTopView.swift; sourceTree = "<group>"; };
 		93FDB7892BA075D20022C658 /* MainScreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBottomView.swift; sourceTree = "<group>"; };
 		93FDB78C2BA083D20022C658 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				930D41D32B9EF53300CAC6C8 /* LaunchViewController.swift */,
 				930D41DA2B9F2A7F00CAC6C8 /* MainViewController.swift */,
 				9314384D2BA1EF6500A85D9E /* FullMenuViewController.swift */,
+				93438A482BA44A7A00A9E630 /* PromoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			children = (
 				930D41E92B9F307100CAC6C8 /* GalleryCollectionViewCell.swift */,
 				931438512BA1F2AC00A85D9E /* MenuTableViewCell.swift */,
+				93438A4E2BA44BF000A9E630 /* PromoCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -327,12 +333,14 @@
 				93FDB7982BA0AF400022C658 /* NetworkFetchService.swift in Sources */,
 				930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */,
 				93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */,
+				93438A492BA44A7A00A9E630 /* PromoViewController.swift in Sources */,
 				93FDB7902BA0ACC10022C658 /* CroissantsDataModel.swift in Sources */,
 				930D41E72B9F2FFA00CAC6C8 /* GalleryCollectionView.swift in Sources */,
 				931438522BA1F2AC00A85D9E /* MenuTableViewCell.swift in Sources */,
 				93FDB79D2BA0AF740022C658 /* NetworkError.swift in Sources */,
 				930D41DB2B9F2A7F00CAC6C8 /* MainViewController.swift in Sources */,
 				931438572BA1FA9000A85D9E /* MenuCellViewModel.swift in Sources */,
+				93438A4F2BA44BF000A9E630 /* PromoCollectionViewCell.swift in Sources */,
 				93FDB7872BA062920022C658 /* MainScreenTopView.swift in Sources */,
 				9314384B2BA1A8C800A85D9E /* UIViewController+Alert.swift in Sources */,
 				9314384E2BA1EF6500A85D9E /* FullMenuViewController.swift in Sources */,

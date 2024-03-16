@@ -61,8 +61,6 @@ extension FullMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = menuTableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.reuseId, for: indexPath) as! MenuTableViewCell
-        //cell.configureCells(with: croissantData[indexPath.row])
-        
         let model = self.cellModel[indexPath.row]
         cell.configure(with: model)
         return cell
@@ -72,9 +70,5 @@ extension FullMenuViewController: UITableViewDelegate, UITableViewDataSource {
         let model = cellModel[indexPath.row]
             model.pressHandler(model.croissant)
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 120
-//    }
     
 }
