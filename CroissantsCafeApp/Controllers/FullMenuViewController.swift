@@ -10,11 +10,13 @@ import UIKit
 class FullMenuViewController: UIViewController {
     private let menuTableView = UITableView()
     
-    var cellModel = [MenuCellViewModel]()
-    var croissantData = [CroissantsDataModel]()
+    private var cellModel = [MenuCellViewModel]()
+    public var croissantData = [CroissantsDataModel]()
+    public var menuImageData = [String:Data]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(menuImageData.count)
 
         configureMenuTableView()
         
@@ -61,7 +63,9 @@ extension FullMenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = menuTableView.dequeueReusableCell(withIdentifier: MenuTableViewCell.reuseId, for: indexPath) as! MenuTableViewCell
-        let model = self.cellModel[indexPath.row]
+        let model = cellModel[indexPath.row]
+        guard let image = menuImageData[model.croissant.name] else { return cell }
+        cell.configureCellImages(from: image)
         cell.configure(with: model)
         return cell
     }

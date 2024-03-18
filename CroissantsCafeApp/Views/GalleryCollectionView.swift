@@ -9,6 +9,7 @@ import UIKit
 
 class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     public var dataModel = [CroissantsDataModel]()
+    public var imageData = [String:Data]()
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -33,7 +34,10 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseId, for: indexPath) as! GalleryCollectionViewCell
-        cell.updateCell(with: dataModel[indexPath.row])
+        let current = dataModel[indexPath.row]
+        cell.updateCell(with: current)
+        guard let image = imageData[current.name] else { return cell }
+        cell.updateCellImage(from: image)
         return cell
     }
     

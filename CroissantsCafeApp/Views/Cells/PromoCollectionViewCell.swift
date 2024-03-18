@@ -32,18 +32,23 @@ class PromoCollectionViewCell: UICollectionViewCell {
     public func configureCell(promoName: String) {
         setImage(promoName: promoName)
     }
+    public func configureDataCell(promoData: Data) {
+        promoImage.image = UIImage(data: promoData)
+    }
     
     private func configure() {
-        contentView.backgroundColor = .gray
+        contentView.backgroundColor = .white
         contentView.alpha = 0.5
         contentView.layer.cornerRadius = 10
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.gray.cgColor
         
         addSubview(promoImage)
         promoImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             promoImage.topAnchor.constraint(equalTo: topAnchor),
-            promoImage.leadingAnchor.constraint(equalTo: leadingAnchor),
-            promoImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            promoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3),
+            promoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -3),
             promoImage.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }

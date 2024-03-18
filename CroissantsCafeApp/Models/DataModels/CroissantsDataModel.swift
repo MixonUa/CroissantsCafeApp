@@ -10,8 +10,9 @@ import Foundation
 struct CroissantsDataModel: Codable {
     let name: String
     let description: String
+    let image: String
     let price: Int
-    let characteristics: Characteristics
+    let details: Characteristics
 }
 
 struct Characteristics: Codable {

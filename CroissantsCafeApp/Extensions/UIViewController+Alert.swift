@@ -32,7 +32,7 @@ extension UIViewController {
     }
     
     func showPromoAlert(promoTitle: String, promoCode: String) {
-        let alertController = UIAlertController(title: promoTitle, message: promoTitle, preferredStyle: .alert)
+        let alertController = UIAlertController(title: promoTitle, message: promoCode, preferredStyle: .alert)
         let action = UIAlertAction(title: "Смакую!", style: .default)
         alertController.addAction(action)
         present(alertController, animated: true, completion: nil)

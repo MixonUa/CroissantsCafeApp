@@ -21,7 +21,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     private let croissantImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "loadingCroissant")
+        imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -67,11 +67,13 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     }
     
     public func updateCell(with dataModel: CroissantsDataModel) {
-        croissantImageView.image = UIImage(named: "loadingCroissant")
         croissantName.text = dataModel.name
         croissantDescription.text = dataModel.description
-        croissantDetails.text = "\(dataModel.characteristics.weight)грамм, \(dataModel.characteristics.energy)ккал"
-        
+        croissantDetails.text = "\(dataModel.details.weight)грамм, \(dataModel.details.energy)ккал"
+    }
+    
+    public func updateCellImage(from imageData: Data) {
+        croissantImageView.image = UIImage(data: imageData)
     }
     
     private func configureStackView() {
