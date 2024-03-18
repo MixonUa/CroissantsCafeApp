@@ -16,8 +16,7 @@ class FullMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(menuImageData.count)
-
+        
         configureMenuTableView()
         
         cellModel = setupViewModel(croissantData)
