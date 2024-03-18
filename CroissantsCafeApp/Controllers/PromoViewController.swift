@@ -10,21 +10,20 @@ import UIKit
 class PromoViewController: UIViewController {
     private let promoCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private let returnButton = UIButton()
-
+    private let dataProvider = NetworkImageDownloader(networkDataProvider: NetworkService())
+    public var promoData = [PromoDataModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureReturnButton()
         configurePromoCollectionView()
-
-        promoCollectionView.backgroundColor = .none
+        
         promoCollectionView.register(PromoCollectionViewCell.self, forCellWithReuseIdentifier: PromoCollectionViewCell.reuseId)
         promoCollectionView.dataSource = self
         promoCollectionView.delegate = self
     }
-    
 
-    
     // MARK: - Navigation
     @objc private func backButtonPressed() {
         self.dismiss(animated: true, completion: nil)
@@ -46,7 +45,8 @@ class PromoViewController: UIViewController {
         ])
     }
     
-    private func configurePromoCollectionView() {        
+    private func configurePromoCollectionView() {
+        promoCollectionView.backgroundColor = .none
         view.addSubview(promoCollectionView)
         promoCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -63,16 +63,17 @@ class PromoViewController: UIViewController {
 
 extension PromoViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //verificationModel.filtredMailArray.count
-        6
+        promoData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoCollectionViewCell.reuseId, for: indexPath) as? PromoCollectionViewCell
-        else { return UICollectionViewCell() }
-
-        let promoImageName = "loadingCroissant"
-        cell.configureCell(promoName: promoImageName)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PromoCollectionViewCell.reuseId, for: indexPath) as? PromoCollectionViewCell else { return UICollectionViewCell() }
+        dataProvider.requestImagesData(from: promoData[indexPath.row].image) { [unowned self] (result) in
+            switch result {
+            case .success(let recievedData): cell.configureDataCell(promoData: recievedData)
+            case .failure(let recievedError): self.showErrorAlert(title: "ERROR", message: recievedError.localizedDescription)
+            }
+        }
         return cell
     }
 }
@@ -81,7 +82,7 @@ extension PromoViewController: UICollectionViewDataSource {
 
 extension PromoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.showPromoAlert(promoTitle: "KYRASAN", promoCode: "action + acrtion + coffe")
+        self.showPromoAlert(promoTitle: promoData[indexPath.row].name, promoCode: "Назвіть касиру код: \(promoData[indexPath.row].code)")
     }
 }
 

@@ -9,6 +9,7 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
     static let reuseId = "MenuTableViewCell"
+    public var imagesData = [Data]()
     
     private let croissantImageView: UIImageView = {
         let imageView = UIImageView()
@@ -19,7 +20,6 @@ class MenuTableViewCell: UITableViewCell {
     
     private let croissantName: UILabel = {
         let label = UILabel()
-        label.text = "NAME"
         label.font = UIFont(name: "Helvetica-Bold", size: 18)
         label.textColor = UIColor.black
         label.textAlignment = .center
@@ -28,7 +28,6 @@ class MenuTableViewCell: UITableViewCell {
     
     private let croissantPrice: UILabel = {
         let label = UILabel()
-        label.text = "PRICE 900"
         label.font = UIFont(name: "Helvetica-Bold", size: 18)
         label.textColor = UIColor.black
         label.textAlignment = .center
@@ -44,7 +43,6 @@ class MenuTableViewCell: UITableViewCell {
     
     private let croissantDescription: UILabel = {
        let label = UILabel()
-        label.text = "DESCRIPTION description description description description description "
         label.font = UIFont(name: "Helvetica-Regular", size: 14)
         label.textColor = UIColor.darkGray
         label.textAlignment = .left
@@ -55,7 +53,6 @@ class MenuTableViewCell: UITableViewCell {
     
     private let croissantDetails: UILabel = {
        let label = UILabel()
-        label.text = "100 / 500"
         label.font = UIFont(name: "Helvetica-Regular", size: 12)
         label.textColor = UIColor.systemOrange
         label.textAlignment = .center
@@ -73,9 +70,14 @@ class MenuTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    public func configureCellImages(from imageData: Data) {
+        croissantImageView.image = UIImage(data: imageData)
+    }
+    
     public func configure(with model: MenuCellViewModel) {
         croissantName.text = model.croissant.name
-        croissantPrice.text = "500грн"
+        croissantPrice.text = "\(model.croissant.price)грн"
+        croissantDetails.text = "\(model.croissant.details.weight)грамм, \(model.croissant.details.energy)ккал"
         if model.collapsed {
             croissantDescription.text = "press for details"
             croissantDescription.numberOfLines = 1

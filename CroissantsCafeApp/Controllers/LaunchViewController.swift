@@ -16,8 +16,12 @@ class LaunchViewController: UIViewController {
     let loadingLine = UIProgressView()
     var progressBarTimer: Timer?
     
-    var data = [CroissantsDataModel]()
-    var error: Error? = nil
+    var croissantData = [CroissantsDataModel]()
+    var croissantError: Error? = nil
+    var promoData = [PromoDataModel]()
+    var promoError: Error? = nil
+    var menuImageData = [String:Data]()
+    var menuImageError: Error? = nil
     let fetchDataProvider = NetworkFetchService(networkDataProvider: NetworkService())
     
     override func viewDidLoad() {
@@ -32,14 +36,32 @@ class LaunchViewController: UIViewController {
         group.enter()
         fetchDataProvider.requestCroissantsData { [unowned self] result in
             switch result {
-            case .success(let recievedData): data = recievedData
-            case .failure(let recievedError): error = recievedError
+            case .success(let recievedData): croissantData = recievedData
+            case .failure(let recievedError): croissantError = recievedError
+            }
+            group.leave()
+        }
+        
+        group.enter()
+        fetchDataProvider.requestPromoData { [unowned self] result in
+            switch result {
+            case .success(let recievedData): promoData = recievedData
+            case .failure(let recievedError): promoError = recievedError
             }
             group.leave()
         }
         
         group.notify(queue: DispatchQueue.main) { [unowned self] in
-            if error == nil {
+            let dataProvider = NetworkImageDownloader(networkDataProvider: NetworkService())
+            for croissant in croissantData {
+                dataProvider.requestImagesData(from: croissant.image) { [unowned self] (result) in
+                    switch result {
+                    case .success(let recievedData): menuImageData[croissant.name] = recievedData
+                    case .failure(let recievedError): menuImageError = recievedError; break
+                    }
+                }
+            }
+            if croissantError == nil && promoError == nil && menuImageError == nil {
             loadingLine.progress += 0.2
             loadingLine.setProgress(loadingLine.progress, animated: true)
             }
@@ -70,8 +92,9 @@ class LaunchViewController: UIViewController {
         loadingLine.progress += 0.2
         loadingLine.setProgress(loadingLine.progress, animated: true)
         if (loadingLine.progress == 0.8) {
-            guard let error = error else { return }
-            self.showErrorAlert(title: "ERROR", message: error.localizedDescription)
+            if let error = croissantError { self.showErrorAlert(title: "ERROR: MenuJSON", message: error.localizedDescription) }
+            else if let promoError = promoError { self.showErrorAlert(title: "ERROR: PromoJSON", message: promoError.localizedDescription) }
+            else if let imageError = menuImageError { self.showErrorAlert(title: "ERROR: MenuImages", message: imageError.localizedDescription) }
         }
         else if (loadingLine.progress == 1.0) {
             presentVC()
@@ -112,7 +135,9 @@ class LaunchViewController: UIViewController {
     // MARK: - Navigation
     private func presentVC() {
         let nextVC = MainViewController()
-        nextVC.croissantData = data
+        nextVC.croissantData = croissantData
+        nextVC.promoData = promoData
+        nextVC.menuImageData = menuImageData
         nextVC.modalTransitionStyle = .crossDissolve
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true, completion: nil)
