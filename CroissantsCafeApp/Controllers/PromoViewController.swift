@@ -10,6 +10,8 @@ import UIKit
 class PromoViewController: UIViewController {
     private let promoCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     private let returnButton = UIButton()
+    private let titleLabel = UILabel()
+    
     private let dataProvider = NetworkImageDownloader(networkDataProvider: NetworkService())
     public var promoData = [PromoDataModel]()
     
@@ -17,6 +19,7 @@ class PromoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         configureReturnButton()
+        configureTitleLabel()
         configurePromoCollectionView()
         
         promoCollectionView.register(PromoCollectionViewCell.self, forCellWithReuseIdentifier: PromoCollectionViewCell.reuseId)
@@ -42,6 +45,21 @@ class PromoViewController: UIViewController {
             returnButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             returnButton.widthAnchor.constraint(equalToConstant: 40),
             returnButton.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    private func configureTitleLabel() {
+        titleLabel.text = "Актуальні купони"
+        titleLabel.font = UIFont(name: "Helvetica-Bold", size: 20)
+        titleLabel.textAlignment = .center
+        
+        view.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: returnButton.trailingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

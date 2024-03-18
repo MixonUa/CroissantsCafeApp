@@ -16,6 +16,7 @@
 		931438522BA1F2AC00A85D9E /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931438512BA1F2AC00A85D9E /* MenuTableViewCell.swift */; };
 		931438572BA1FA9000A85D9E /* MenuCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931438562BA1FA9000A85D9E /* MenuCellViewModel.swift */; };
 		9318CA6E2BA837CE007432D2 /* PromoDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9318CA6D2BA837CE007432D2 /* PromoDataModel.swift */; };
+		9318CA722BA87902007432D2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9318CA712BA87902007432D2 /* ProfileViewController.swift */; };
 		9329E48A2BA59F0900719045 /* NetworkImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9329E4892BA59F0900719045 /* NetworkImageDownloader.swift */; };
 		932D00042B99DAB3007ABFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932D00022B99DAB3007ABFCE /* Main.storyboard */; };
 		932D00062B99DABB007ABFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932D00052B99DABB007ABFCE /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		931438512BA1F2AC00A85D9E /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		931438562BA1FA9000A85D9E /* MenuCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellViewModel.swift; sourceTree = "<group>"; };
 		9318CA6D2BA837CE007432D2 /* PromoDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoDataModel.swift; sourceTree = "<group>"; };
+		9318CA712BA87902007432D2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9329E4892BA59F0900719045 /* NetworkImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImageDownloader.swift; sourceTree = "<group>"; };
 		932D00032B99DAB3007ABFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932D00052B99DABB007ABFCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				930D41DA2B9F2A7F00CAC6C8 /* MainViewController.swift */,
 				9314384D2BA1EF6500A85D9E /* FullMenuViewController.swift */,
 				93438A482BA44A7A00A9E630 /* PromoViewController.swift */,
+				9318CA712BA87902007432D2 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				932DFFFF2B99DAB3007ABFCE /* SceneDelegate.swift in Sources */,
 				93FDB7942BA0ADA10022C658 /* NetworkService.swift in Sources */,
 				93FDB7982BA0AF400022C658 /* NetworkFetchService.swift in Sources */,
+				9318CA722BA87902007432D2 /* ProfileViewController.swift in Sources */,
 				930D41D42B9EF53300CAC6C8 /* LaunchViewController.swift in Sources */,
 				93FDB78D2BA083D20022C658 /* MenuButton.swift in Sources */,
 				93438A492BA44A7A00A9E630 /* PromoViewController.swift in Sources */,

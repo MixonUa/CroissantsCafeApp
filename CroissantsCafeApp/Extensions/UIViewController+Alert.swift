@@ -18,10 +18,10 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func showQrCodeAlert(qrTitle: String) {
+    func showQrCodeAlert(qrTitle: String, image: String) {
         let alertController = UIAlertController(title: qrTitle, message: nil, preferredStyle: .alert)
         let imageView = UIImageView(frame: CGRect(x: 0, y: 55, width: 280, height: 140))
-        imageView.image = UIImage(named: "QRcode")
+        imageView.image = UIImage(named: image)
         imageView.contentMode = .scaleAspectFit
         alertController.view.addSubview(imageView)
         let height = NSLayoutConstraint(item: alertController.view!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 260)
