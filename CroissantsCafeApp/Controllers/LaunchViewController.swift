@@ -23,6 +23,7 @@ class LaunchViewController: UIViewController {
     var menuImageData = [String:Data]()
     var menuImageError: Error? = nil
     let fetchDataProvider = NetworkFetchService(networkDataProvider: NetworkService())
+    let imageDataProvider = NetworkImageDownloader(networkDataProvider: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,42 +33,48 @@ class LaunchViewController: UIViewController {
         configureLoadingLabel()
         configureLoadingLine()
         
-        let group = DispatchGroup()
-        group.enter()
-        fetchDataProvider.requestCroissantsData { [unowned self] result in
-            switch result {
-            case .success(let recievedData): croissantData = recievedData
-            case .failure(let recievedError): croissantError = recievedError
+        DispatchQueue.global().async {
+            let group = DispatchGroup()
+            group.enter()
+            self.fetchDataProvider.requestCroissantsData { [unowned self] result in
+                switch result {
+                case .success(let recievedData): croissantData = recievedData
+                case .failure(let recievedError): croissantError = recievedError
+                }
+                group.leave()
             }
-            group.leave()
-        }
-        
-        group.enter()
-        fetchDataProvider.requestPromoData { [unowned self] result in
-            switch result {
-            case .success(let recievedData): promoData = recievedData
-            case .failure(let recievedError): promoError = recievedError
+            
+            group.enter()
+            self.fetchDataProvider.requestPromoData { [unowned self] result in
+                switch result {
+                case .success(let recievedData): promoData = recievedData
+                case .failure(let recievedError): promoError = recievedError
+                }
+                group.leave()
             }
-            group.leave()
-        }
-        
-        group.notify(queue: DispatchQueue.main) { [unowned self] in
-            let dataProvider = NetworkImageDownloader(networkDataProvider: NetworkService())
-            for croissant in croissantData {
-                dataProvider.requestImagesData(from: croissant.image) { [unowned self] (result) in
-                    switch result {
-                    case .success(let recievedData): menuImageData[croissant.name] = recievedData
-                    case .failure(let recievedError): menuImageError = recievedError; break
+            group.wait()
+            
+            group.enter()
+            guard self.croissantData.count != 0 else { self.menuImageError = NSError(domain: "", code: 404, userInfo: [NSLocalizedDescriptionKey: "No data to load images"]); return }
+                for croissant in self.croissantData {
+                    self.imageDataProvider.requestImagesData(from: croissant.image) { [unowned self] (result) in
+                        switch result {
+                        case .success(let recievedData): menuImageData[croissant.name] = recievedData
+                        case .failure(let recievedError): menuImageError = recievedError; break
+                        }
                     }
                 }
-            }
-            if croissantError == nil && promoError == nil && menuImageError == nil {
-            loadingLine.progress += 0.2
-            loadingLine.setProgress(loadingLine.progress, animated: true)
+                group.leave()
+            
+            
+            group.notify(queue: DispatchQueue.main) { [unowned self] in
+                if croissantError == nil && promoError == nil && menuImageError == nil {
+                    loadingLine.progress += 0.2
+                    loadingLine.setProgress(loadingLine.progress, animated: true)
+                }
             }
         }
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         UIView.animateKeyframes(withDuration: 3.0, delay: 0.5, options: .calculationModeLinear, animations: {
             self.loadingCroissant.frame.origin.x = self.view.bounds.width/2-50
